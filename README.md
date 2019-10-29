@@ -25,5 +25,6 @@ Raspberry Pi Zero Camera with motion detection
   * python3 /home/pi/Camera/camera_button_off.py &
   * python3 /home/pi/Camera/camera_button_rebo.py &
   * python3 /home/pi/Camera/camera_motion_script_switch &
+
 to /etc/rc.local (sudo nano /etc/rc.local)
 
