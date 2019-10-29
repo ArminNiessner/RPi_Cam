@@ -1,5 +1,5 @@
 # RPi_Cam
-Raspberry Pi Zero Camera with motion detection
+Raspberry Pi Zero Camera with motion detection based on the set-up and code at [hackster.io](https://www.hackster.io/team-ppi/variable-time-camera-for-monitoring-plant-pollination-events-ad21e7) by Roman Kellenberger
 
 ![RPi_Cam](RPi_Cam.jpg)
 
