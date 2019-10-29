@@ -1,6 +1,8 @@
 # RPi_Cam
 Raspberry Pi Zero Camera with motion detection
 
+![RPi_Cam](RPi_Cam.jpg)
+
 ## Special features
 * take pictures or videos in a certain intverval
 * take pictures or videos triggerd by motion
@@ -23,5 +25,5 @@ Raspberry Pi Zero Camera with motion detection
   * python3 /home/pi/Camera/camera_button_off.py &
   * python3 /home/pi/Camera/camera_button_rebo.py &
   * python3 /home/pi/Camera/camera_motion_script_switch &
-
+to /etc/rc.local (sudo nano /etc/rc.local)
 
