@@ -20,8 +20,8 @@ Raspberry Pi Zero Camera with motion detection
 6. install imagemagick (sudo apt-get install imagemagick)
 7. add the python files from this repository to /home/pi/Camera/
 8. add the lines:
-        * python3 /home/pi/Camera/camera_button_off.py &
-        * python3 /home/pi/Camera/camera_button_rebo.py &
-        * python3 /home/pi/Camera/camera_motion_script_switch &
+  * python3 /home/pi/Camera/camera_button_off.py &
+  * python3 /home/pi/Camera/camera_button_rebo.py &
+  * python3 /home/pi/Camera/camera_motion_script_switch &
 
 
