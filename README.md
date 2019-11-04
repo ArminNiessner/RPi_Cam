@@ -1,14 +1,14 @@
 # RPi_Cam
-Raspberry Pi Zero Camera with motion detection based on the set-up and code at [hackster.io](https://www.hackster.io/team-ppi/variable-time-camera-for-monitoring-plant-pollination-events-ad21e7) by Roman Kellenberger
+Raspberry Pi Zero Camera with motion detection based on the set-up and code available at [hackster.io](https://www.hackster.io/team-ppi/variable-time-camera-for-monitoring-plant-pollination-events-ad21e7) by Roman Kellenberger
 
 ![RPi_Cam](RPi_Cam.jpg)
 
 ## Special features
-* take pictures or videos in a certain intverval
-* take pictures or videos triggerd by motion
+* take pictures or videos in a certain intverval, or
+* take pictures or videos triggered by motion
 * adjustable sensitivity of motion detection
 * suspend taking pictures/videos during night hours to save energy
-* programamble shutdown at a certain time
+* programmable shutdown at a certain time
 * hardware-switch to change between pictures-videos, motion detection on-off, timestamp on-off, test mode-normal mode
 * buttons for rebooting or shutting down the pi
 * real-time clock to keep the time 

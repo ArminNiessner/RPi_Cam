@@ -80,7 +80,7 @@ cres = (3280, 2464) # image resolution
 threshold = 10  #how much a pixel has to change by to be marked as "changed"
 sensitivity = 20    #how many changed pixels before capturing an image, needs to be higher if noisy view
 shutdown_datetime = "2019-10-21 18:40"
-night_hour = [23, 7]    #hours in between no pictures should be taken as integers
+night_hours = [23, 0, 1, 2, 3, 4, 5, 6, 7]    #hours when no pictures should be taken
 ##############
 
 def picts_md(wt,M,PTH,N,thh,sens):
@@ -143,7 +143,7 @@ def check_shutdown():
         pass
    
 def check_night():
-    while datetime.now().hour >= night_hour[0] or datetime.now().hour <= night_hour[1]:
+    while datetime.now().hour in night_hours:
         print("sleeping...")
         sleep(60)
         check_shutdown()
