@@ -31,7 +31,7 @@ Raspberry Pi Zero Camera with motion detection based on the set-up and code avai
 ## Setup
 1. solder/connect the RTC, switch and buttons to the RPi
  * RTC
-  * GND --> GND
+    - GND --> GND
   * VCC --> 5V
   * SDA --> Pin 3
   * SCL --> Pin 5
@@ -82,10 +82,4 @@ to /etc/rc.local (sudo nano /etc/rc.local)
 ## Notes
 * if USB WIFI adapter is reconnected while the RPi active, the RPi might reboot. In order to avoid sd memory corruption, press the shutdown button, connect the USB WIFI adapter and reconnect the RPi to the power supply
 * a Raspberry Pi Zero W with integrated WIFI controller could be used if the camera will be placed in a lab or somewhere with constant WIFI and power supply. So you can also connect to your RPi over vnc or ssh from all around the world
-
-
-
-
-
-
 
