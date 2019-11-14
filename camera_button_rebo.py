@@ -31,7 +31,7 @@ GPIO.setup(16, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 
 try:
     GPIO.wait_for_edge(16, GPIO.RISING)
-    os.system("sudo reboot -h now")
+    os.system("sudo reboot now")
 except:
     pass
 

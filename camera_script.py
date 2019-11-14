@@ -1,28 +1,5 @@
 #!/usr/bin/python3
 
-"""
-Created on Mon Oct 28 16:57:50 2019
-
-@author: armin
-
-
- Copyright (C) 2019  Armin Niessner
- 
- This program is free software: you can redistribute it and/or modify
- it under the terms of the GNU General Public License as published by
- the Free Software Foundation, either version 3 of the License, or
- (at your option) any later version.
- 
- This program is distributed in the hope that it will be useful,
- but WITHOUT ANY WARRANTY; without even the implied warranty of
- MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- GNU General Public License for more details.
- 
- You should have received a copy of the GNU General Public License
- along with this program. If not, see <https://www.gnu.org/licenses/>.
-
-"""
-
 import os
 from time import sleep
 from datetime import datetime
@@ -32,7 +9,6 @@ import RPi.GPIO as GPIO
 import picam_mod
 
 GPIO.setmode(GPIO.BOARD)
-GPIO.setup(7, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 GPIO.setup(11, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 GPIO.setup(12, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 GPIO.setup(13, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
@@ -54,34 +30,32 @@ if GPIO.input(12) == True:
     TiSt = True
 else:
     TiSt = False
-    
-if GPIO.input(7) == True:
-    NP=2  #Number of pictures
-    PWT=3  #Time bewteen pictures in seconds
-    NPX=10      #Number of picture series 
-    DTP=2    #Interval between picture series in seconds-0 one series
-    VWT=20  #Video length in seconds
-    NV=2    #Number of videos
-    DT=20    #Interval between videos in seconds
-    
-else:
-    NP=3  #Number of pictures
-    PWT=10  #Time bewteen pictures in seconds
-    NPX=1000      #Number of picture series 
-    DTP=2    #Interval between picture series in seconds-0 one series
-    VWT=5*60  #Video length in seconds
-    NV=2    #Number of videos
-    DT=1*60    #Interval between videos in seconds 
+
+
+set_file = open("/home/pi/Desktop/settings.txt", "r")
+NP = int(set_file.readline().split("=")[1])
+PWT = int(set_file.readline().split("=")[1])
+NPX = int(set_file.readline().split("=")[1])
+DTP = int(set_file.readline().split("=")[1])
+VWT = int(set_file.readline().split("=")[1])
+NV = int(set_file.readline().split("=")[1])
+DT =  int(set_file.readline().split("=")[1])
+crot = int(set_file.readline().split("=")[1])
+w = int(set_file.readline().split("=")[1])
+h = int(set_file.readline().split("=")[1])
+threshold = int(set_file.readline().split("=")[1])
+sensitivity = int(set_file.readline().split("=")[1])
+shutdown_datetime = set_file.readline().split("=")[1]
+night_hours = set_file.readline().split("=")[1].split(",")
+night_hours = list(map(int, night_hours))
 
 PTH_i = "/home/pi/Camera/"
 
-crot = 0 #camera rotation
-cres = (3280, 2464) # image resolution
-threshold = 10  #how much a pixel has to change by to be marked as "changed"
-sensitivity = 20    #how many changed pixels before capturing an image, needs to be higher if noisy view
-shutdown_datetime = "2019-10-21 18:40"
-night_hours = [23, 0, 1, 2, 3, 4, 5, 6, 7]    #hours when no pictures should be taken
+cres = (w, h) # image resolution
 ##############
+
+print("VID: {}, MD: {}, TiSt: {}".format(VID,MD,TiSt))
+print("Shutdown at: {}, night hours from {} to {}".format(shutdown_datetime, night_hours[0], night_hours[-1]))
 
 def picts_md(wt,M,PTH,N,thh,sens):
     while True:
@@ -99,13 +73,14 @@ def picts(wt,M,PTH,N):
     with picamera.PiCamera() as camera:
         camera.resolution = cres
         camera.rotation = crot
-        for i, filename in enumerate(camera.capture_continuous(PTH+'/'+str(M+1)+'-'+'image{timestamp:%H-%M-%S}-{counter:04d}.jpg')):
+        zeros = digits(M+1) * "0"
+        for i, filename in enumerate(camera.capture_continuous(PTH+'/'+zeros+str(M+1)+'-'+'image{timestamp:%H-%M-%S}-{counter:04d}.jpg')):
             if TiSt == True:
                 timeStamp(filename)
             sleep(wt)
             if i ==(N-1):
                 break
-    print("Picture(s) taken.")
+    print("Picture(s) "+zeros+str(M+1)+" taken.")
 
 ###############
 
@@ -152,6 +127,19 @@ def timeStamp(filepath):
     str_datetime = str(datetime.now())[:19]
     os.system("/usr/bin/convert " + filepath + " -pointsize 102 -fill red -annotate +2300+2400 '" + str_datetime + "' " + filepath)
     
+def digits(m):
+    dig1 = NPX
+    count1 = 0
+    while(dig1 > 0):
+        dig1 = dig1 // 10
+        count1 += 1
+    dig2 = m
+    count2 = 0
+    while(dig2 > 0):
+        dig2 = dig2 // 10
+        count2 += 1
+    zeros = count1 - count2
+    return zeros
 ##############
 def main():
     nrl=glob.glob(PTH_i + "*.TXT")

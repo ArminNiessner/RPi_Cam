@@ -1,0 +1,14 @@
+#Number of pictures,                                        NP  =3
+#Time bewteen pictures in seconds,                          PWT =10
+#Number of picture series,                                  NPX =1000 
+#Interval between picture series in seconds-0 one series,   DTP =2
+#Video length in seconds,                                   VWT =60
+#Number of videos,                                          NV  =2
+#Interval between videos in seconds,                        DT  =60 
+#Camera rotation,					    crot=0
+#Image resolution width (5MP: 2592, 8MP: 3280),		    w	=3280
+#Image resolution height (5MP: 1944, 8MP: 2464),	    h	=2464
+#Motion detection threshold pixel			    thr	=20
+#Motion detection sensitivity				    sens=30
+#date and time to shutdown				    sdt	=2019-10-21 18:40
+#hours when no pictures should be taken (e.g. night)	    nh	=23,0,1,2,3,4,5,6,7
