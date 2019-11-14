@@ -56,7 +56,7 @@ Raspberry Pi Zero Camera with motion detection based on the set-up and code avai
   * python3 /home/pi/Camera/camera_button_rebo.py &
   * python3 /home/pi/Camera/script_ini.py &
 
-to /etc/rc.local (sudo nano /etc/rc.local)
+    to /etc/rc.local (sudo nano /etc/rc.local)
 10. install "VNC Viewer" and "Total Commander" to your smartphone
 11. add the "SFTP" plugin to the "Total Commander" app
 12. create a WIFI hotspot with a smartphone and add the network information to wpa_supplicant.conf
