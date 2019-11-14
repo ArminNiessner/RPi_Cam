@@ -32,18 +32,18 @@ Raspberry Pi Zero Camera with motion detection based on the set-up and code avai
 1. solder/connect the RTC, switch and buttons to the RPi
  * RTC
     - GND --> GND
-  * VCC --> 5V
-  * SDA --> Pin 3
-  * SCL --> Pin 5
+    - VCC --> 5V
+    - SDA --> Pin 3
+    - SCL --> Pin 5
  * buttons
-  * Power off button: 3.3V and Pin 15
-  * Reboot button: 3.3V and Pin 16
+    - Power off button: 3.3V and Pin 15
+    - Reboot button: 3.3V and Pin 16
  * switch
-  * off --> 3.3V
-  * 1   --> Pin 13 (OFF: picture mode, ON: video mode)
-  * 2   --> Pin 12 (OFF: no timestamp, ON: timestamp)
-  * 3   --> Pin 11 (OFF: intervall mode, ON: motion detection mode)
-  * 4   --> Pin 7  (OFF: normal mode, ON: test mode)
+    - off --> 3.3V
+    - 1   --> Pin 13 (OFF: picture mode, ON: video mode)
+    - 2   --> Pin 12 (OFF: no timestamp, ON: timestamp)
+    - 3   --> Pin 11 (OFF: intervall mode, ON: motion detection mode)
+    - 4   --> Pin 7  (OFF: normal mode, ON: test mode)
 2. flash sd card with raspbian image
 3. create ssh and wpa_supplicant.conf files in boot partition to be able to connect to the pi over wifi
 4. connect the USB WIFI adapter to the RPi, boot the RPi and connect via ssh (ssh pi@192.123.456.78)
