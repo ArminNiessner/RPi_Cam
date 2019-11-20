@@ -60,6 +60,7 @@ Raspberry Pi Zero Camera with motion detection based on the set-up and code avai
 10. install "VNC Viewer" and "Total Commander" to your smartphone
 11. add the "SFTP" plugin to the "Total Commander" app
 12. create a WIFI hotspot with a smartphone and add the network information to wpa_supplicant.conf
+13. connect to your RPi via the "VNC Viewer" app, open the VNC Server dialog, navigate to Menu > Option > Troubleshooting and enable direct capture mode
 
 ## Field Application
 ### set camera settings
